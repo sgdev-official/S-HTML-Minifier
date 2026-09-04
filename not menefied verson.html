@@ -3,165 +3,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S HTML Minifier - Fast & Free Online Code Optimizer</title>
-  
-  <meta name="description" content="S HTML Minifier is a fast, lightweight, zero-database online tool to minify and optimize HTML code instantly. Built by Sgdev.">
+  <title>S HTML Minifier — Fast, Free Online Code Optimizer</title>
+
+  <meta name="description" content="S HTML Minifier is a fast, lightweight, zero-database online tool to minify and optimize HTML, inline CSS and inline JS instantly. Built by Sgdev.">
   <meta name="keywords" content="HTML Minifier, Minify HTML, Online HTML Compressor, Code Optimizer, Sgdev, Shubhomoy">
   <meta name="author" content="Sgdev (Shubhomoy)">
   <meta name="robots" content="index, follow">
 
-  <meta property="og:title" content="S HTML Minifier - Fast & Free Code Optimizer">
-  <meta property="og:description" content="Minify your HTML code in seconds with S HTML Minifier. Free, lightweight, and open source.">
+  <meta property="og:title" content="S HTML Minifier — Fast, Free Code Optimizer">
+  <meta property="og:description" content="Minify HTML, inline CSS and inline JS in seconds. Free, lightweight, and open source.">
   <meta property="og:type" content="website">
 
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+  <!-- Bootstrap grid utilities only — visuals are fully custom, see style.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    body {
-      background-color: #373c3c;
-      color: #ffffff;
-      font-family: sans-serif;
-      text-align: center;
-      padding: 15px;
-      margin: 0;
-    }
-
-    /* রেসপন্সিভ টেক্সট-এরিয়া */
-    textarea {
-      width: 100%;
-      max-width: 650px;
-      height: 150px;
-      color: #ff8c00;
-      border: 2px solid #555555;
-      background-color: #2b2e2e;
-      border-radius: 8px;
-      padding: 12px;
-      outline: none;
-      font-family: monospace;
-      font-size: 14px;
-      resize: vertical;
-    }
-
-    textarea:focus {
-      border-color: #ff8c00;
-    }
-
-    /* ফ্লেক্সিবল বাটন কন্টেইনার */
-    .btn-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-
-    button {
-      cursor: pointer;
-      font-weight: bold;
-      border: none;
-      border-radius: 5px;
-      transition: 0.2s opacity;
-    }
-
-    button:hover {
-      opacity: 0.9;
-    }
-
-    .btn-minify {
-      padding: 12px 24px;
-      background-color: #ff8c00;
-      color: #fff;
-      font-size: 15px;
-      margin: 10px 0;
-    }
-
-    .btn-copy {
-      padding: 10px 18px;
-      background-color: #25d366;
-      color: #fff;
-    }
-
-    .btn-source {
-      padding: 10px 18px;
-      background-color: #5865f2;
-      color: #fff;
-    }
-
-    /* মোবাইল স্ক্রিনের জন্য অ্যাডজাস্টমেন্ট */
-    @media (max-width: 480px) {
-      h2 {
-        font-size: 20px;
-      }
-      
-      textarea {
-        height: 120px;
-      }
-
-      .btn-container button {
-        width: 100%;
-        max-width: 300px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <h2>🚀 S HTML Minifier</h2>
+  <div class="scanline" aria-hidden="true"></div>
 
-  <textarea id="rawHtml" placeholder="Paste your HTML code here..."></textarea><br>
+  <!-- ===== Top bar ===== -->
+  <header class="topbar">
+    <div class="container-fluid">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="brand-mark">S</span>
+          <div class="brand-text">
+            <span class="brand-name">html-minifier</span>
+            <span class="brand-tag">by Sgdev</span>
+          </div>
+        </div>
 
-  <button class="btn-minify" onclick="minifyCode()">
-    Minify Now ⚡
-  </button><br>
+        <nav class="topnav">
+          <a href="https://github.com/sgdev-official" target="_blank" rel="noopener" class="topnav-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            <span>Source</span>
+          </a>
+          <span class="topnav-badge" id="topLicense">Apache-2.0</span>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-  <textarea id="minifiedHtml" placeholder="Your output minified version..." readonly></textarea><br>
+  <main class="container-fluid">
 
-  <div class="btn-container">
-    <button class="btn-copy" onclick="copyCode()">
-      📋 Copy Code
-    </button>
-    
-    <a id="sourceBtn" href="https://github.com/sgdev-official" target="_blank" style="text-decoration: none;">
-      <button class="btn-source">
-        👁️ View Source Code
-      </button>
-    </a>
-  </div>
+    <!-- ===== Intro strip ===== -->
+    <section class="intro">
+      <h1>Minify HTML in your browser.<br><span class="intro-dim">Nothing leaves your machine.</span></h1>
+      <p class="intro-sub">Paste markup, tune what gets stripped, watch the byte count drop. Every option below runs client-side — no upload, no server, no tracking.</p>
+    </section>
 
-  <footer style="margin-top: 30px; font-size: 13px; color: #aaaaaa;">
-    <p>© 2026 <b>Sgdev (Shubhomoy)</b>. All Rights Reserved.</p>
-    <p>This project is licensed under the <b>Apache License 2.0</b>.</p>
+    <!-- ===== Options bar ===== -->
+    <section class="options-bar" aria-label="Minification options">
+      <div class="options-scroll" id="optionsList">
+        <!-- toggles injected via JS-authored markup below for consistency -->
+        <label class="opt" data-opt="comments">
+          <input type="checkbox" checked>
+          <span class="opt-box"></span>
+          <span class="opt-label">Strip comments</span>
+        </label>
+        <label class="opt" data-opt="whitespace">
+          <input type="checkbox" checked>
+          <span class="opt-box"></span>
+          <span class="opt-label">Collapse whitespace</span>
+        </label>
+        <label class="opt" data-opt="quotes">
+          <input type="checkbox" checked>
+          <span class="opt-box"></span>
+          <span class="opt-label">Remove attribute quotes</span>
+        </label>
+        <label class="opt" data-opt="emptyAttrs">
+          <input type="checkbox" checked>
+          <span class="opt-box"></span>
+          <span class="opt-label">Remove empty attributes</span>
+        </label>
+        <label class="opt" data-opt="booleanAttrs">
+          <input type="checkbox" checked>
+          <span class="opt-box"></span>
+          <span class="opt-label">Collapse boolean attributes</span>
+        </label>
+        <label class="opt" data-opt="redundantAttrs">
+          <input type="checkbox" checked>
+          <span class="opt-box"></span>
+          <span class="opt-label">Remove redundant type= attrs</span>
+        </label>
+        <label class="opt" data-opt="doctype">
+          <input type="checkbox" checked>
+          <span class="opt-box"></span>
+          <span class="opt-label">Use short doctype</span>
+        </label>
+        <label class="opt" data-opt="css">
+          <input type="checkbox" checked>
+          <span class="opt-box"></span>
+          <span class="opt-label">Minify inline CSS</span>
+        </label>
+        <label class="opt" data-opt="js">
+          <input type="checkbox">
+          <span class="opt-box"></span>
+          <span class="opt-label">Minify inline JS <em>(light)</em></span>
+        </label>
+      </div>
+
+      <div class="options-actions">
+        <label class="opt opt-auto" data-opt="auto">
+          <input type="checkbox" checked>
+          <span class="opt-box"></span>
+          <span class="opt-label">Auto-run</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- ===== Editor grid ===== -->
+    <section class="editor-grid">
+
+      <div class="pane">
+        <div class="pane-head">
+          <span class="pane-dot"></span>
+          <span class="pane-title">input.html</span>
+          <span class="pane-meta" id="inputMeta">0 bytes · 0 lines</span>
+          <div class="pane-tools">
+            <button class="tool-btn" id="btnSample" type="button" title="Load a sample">Sample</button>
+            <button class="tool-btn" id="btnUpload" type="button" title="Upload a file">Upload</button>
+            <input type="file" id="fileInput" accept=".html,.htm,text/html" hidden>
+            <button class="tool-btn tool-btn-danger" id="btnClear" type="button" title="Clear input">Clear</button>
+          </div>
+        </div>
+        <div class="pane-body" id="dropZone">
+          <textarea id="rawHtml" spellcheck="false" placeholder="Paste your HTML here, or drop a .html file..."></textarea>
+          <div class="drop-overlay" id="dropOverlay"><span>Drop file to load</span></div>
+        </div>
+      </div>
+
+      <div class="pane-controls">
+        <button class="run-btn" id="btnMinify" type="button">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          <span>Minify</span>
+        </button>
+        <span class="run-hint">ctrl<span>+</span>enter</span>
+      </div>
+
+      <div class="pane">
+        <div class="pane-head">
+          <span class="pane-dot pane-dot-out"></span>
+          <span class="pane-title">output.min.html</span>
+          <span class="pane-meta" id="outputMeta">0 bytes · 0 lines</span>
+          <div class="pane-tools">
+            <button class="tool-btn" id="btnDownload" type="button" title="Download minified file">Download</button>
+            <button class="tool-btn tool-btn-accent" id="btnCopy" type="button" title="Copy to clipboard">Copy</button>
+          </div>
+        </div>
+        <div class="pane-body">
+          <textarea id="minifiedHtml" spellcheck="false" readonly placeholder="Minified output appears here..."></textarea>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===== Stats readout ===== -->
+    <section class="stats-strip" id="statsStrip">
+      <div class="stat">
+        <span class="stat-label">original</span>
+        <span class="stat-value" id="statOriginal">0 B</span>
+      </div>
+      <div class="stat-arrow">→</div>
+      <div class="stat">
+        <span class="stat-label">minified</span>
+        <span class="stat-value" id="statMinified">0 B</span>
+      </div>
+      <div class="stat stat-delta">
+        <span class="stat-label">saved</span>
+        <span class="stat-value" id="statSaved">0 B</span>
+      </div>
+      <div class="stat-bar-wrap">
+        <div class="stat-bar" id="statBar"></div>
+      </div>
+      <div class="stat stat-pct">
+        <span class="stat-value stat-value-lg" id="statPct">0%</span>
+        <span class="stat-label">reduction</span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 <b>Sgdev (Shubhomoy)</b>. All rights reserved. Licensed under <b>Apache License 2.0</b>.</p>
   </footer>
 
-  <script>
-    function minifyCode() {
-      let input = document.getElementById('rawHtml').value;
+  <div class="toast-stack" id="toastStack" aria-live="polite"></div>
 
-      let minified = input
-        .replace(/<!--[\s\S]*?-->/g, '')     
-        .replace(/\s+/g, ' ')               
-        .replace(/>\s+</g, '><')            
-        .trim();                             
-
-      document.getElementById('minifiedHtml').value = minified;
-    }
-
-    function copyCode() {
-      let minifiedText = document.getElementById('minifiedHtml').value;
-      if (minifiedText === "") {
-        alert("Put the code first!");
-        return;
-      }
-      
-      navigator.clipboard.writeText(minifiedText);
-      alert("Successfully code copied 🚀");
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
