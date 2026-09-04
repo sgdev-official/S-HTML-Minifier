@@ -17,29 +17,94 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       background-color: #373c3c;
       color: #ffffff;
       font-family: sans-serif;
       text-align: center;
-      padding: 20px;
+      padding: 15px;
+      margin: 0;
     }
 
+    /* রেসপন্সিভ টেক্সট-এরিয়া */
     textarea {
+      width: 100%;
+      max-width: 650px;
+      height: 150px;
       color: #ff8c00;
       border: 2px solid #555555;
       background-color: #2b2e2e;
-      border-radius: 6px;
-      padding: 10px;
+      border-radius: 8px;
+      padding: 12px;
       outline: none;
+      font-family: monospace;
+      font-size: 14px;
+      resize: vertical;
     }
 
     textarea:focus {
       border-color: #ff8c00;
     }
 
+    /* ফ্লেক্সিবল বাটন কন্টেইনার */
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
     button {
       cursor: pointer;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      transition: 0.2s opacity;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .btn-minify {
+      padding: 12px 24px;
+      background-color: #ff8c00;
+      color: #fff;
+      font-size: 15px;
+      margin: 10px 0;
+    }
+
+    .btn-copy {
+      padding: 10px 18px;
+      background-color: #25d366;
+      color: #fff;
+    }
+
+    .btn-source {
+      padding: 10px 18px;
+      background-color: #5865f2;
+      color: #fff;
+    }
+
+    /* মোবাইল স্ক্রিনের জন্য অ্যাডজাস্টমেন্ট */
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 20px;
+      }
+      
+      textarea {
+        height: 120px;
+      }
+
+      .btn-container button {
+        width: 100%;
+        max-width: 300px;
+      }
     }
   </style>
 </head>
@@ -48,27 +113,27 @@
 
   <h2>🚀 S HTML Minifier</h2>
 
-  <textarea id="rawHtml" rows="8" cols="60" placeholder="Paste your HTML code here..."></textarea><br><br>
+  <textarea id="rawHtml" placeholder="Paste your HTML code here..."></textarea><br>
 
-  <button onclick="minifyCode()" style="padding: 10px 20px; background-color: #ff8c00; color: #fff; font-weight: bold; border: none; border-radius: 5px;">
+  <button class="btn-minify" onclick="minifyCode()">
     Minify Now ⚡
-  </button><br><br>
+  </button><br>
 
-  <textarea id="minifiedHtml" rows="8" cols="60" placeholder="Your output minified version..." readonly></textarea><br><br>
+  <textarea id="minifiedHtml" placeholder="Your output minified version..." readonly></textarea><br>
 
-  <div style="margin-top: 5px;">
-    <button onclick="copyCode()" style="padding: 8px 16px; background-color: #25d366; color: #fff; border: none; border-radius: 4px; font-weight: bold;">
+  <div class="btn-container">
+    <button class="btn-copy" onclick="copyCode()">
       📋 Copy Code
     </button>
     
-    <a id="sourceBtn" href="https://github.com/sgdev-official/S-HTML-Minifier" target="_blank" style="text-decoration: none;">
-      <button style="padding: 8px 16px; background-color: #5865f2; color: #fff; border: none; border-radius: 4px; font-weight: bold;">
+    <a id="sourceBtn" href="https://github.com/sgdev-official" target="_blank" style="text-decoration: none;">
+      <button class="btn-source">
         👁️ View Source Code
       </button>
     </a>
   </div>
 
-  <footer style="margin-top: 25px; font-size: 13px; color: #aaaaaa;">
+  <footer style="margin-top: 30px; font-size: 13px; color: #aaaaaa;">
     <p>© 2026 <b>Sgdev (Shubhomoy)</b>. All Rights Reserved.</p>
     <p>This project is licensed under the <b>Apache License 2.0</b>.</p>
   </footer>
