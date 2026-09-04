@@ -15,7 +15,7 @@
 
 ## 🛠️ How to Use
 
-1. **Open the Tool:** Visit [S HTML Minifier](www.sminifire.duckdns.org).
+1. **Open the Tool:** Visit [S HTML Minifier](https://sminifier.duckdns.org/).
 2. **Paste Code:** Copy your raw HTML code and paste it into the **Input** text area.
 3. **Click Minify:** Press the **`Minify Now ⚡`** button.
 4. **Copy Output:** Your clean, compressed HTML code will appear in the **Output** box. Click **`📋 Copy Code`** to copy it instantly!
